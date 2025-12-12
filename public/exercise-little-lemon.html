@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Little Lemon — A Mini Exercise</title>
+    <meta
+      name="description"
+      content="Little Lemon - simple HTML-only exercise that recreates a mobile landing layout (header, hero, specials, testimonials, footer)."
+    />
+    <meta
+      name="keywords"
+      content="Little Lemon, restaurant, food, HTML exercise, landing page"
+    />
+    <meta name="author" content="Little Lemon Design Exercise" />
+
+    <meta
+      property="og:title"
+      content="Little Lemon — Simple Landing (HTML Exercise)"
+    />
+    <meta
+      property="og:description"
+      content="A small, single-file HTML exercise inspired by a mobile restaurant landing page. No JS, no external CSS—just HTML with inline styles."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/little-lemon" />
+    <!-- Replace these with your own images inside public/images/ -->
+    <meta property="og:image" content="/images/og.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Little Lemon — Simple Landing (HTML Exercise)"
+    />
+    <meta
+      name="twitter:description"
+      content="A single-file HTML exercise inspired by a mobile restaurant landing page."
+    />
+    <meta name="twitter:image" content="/images/og.jpg" />
+
+    <style>
+      :root {
+        --yellow: #f7c600;
+        --dark: #2f3a37;
+        --light: #f6f6f6;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: #f2f2f2;
+      }
+      .container {
+        width: 375px;
+        margin: 20px auto;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 20px;
+        background: white;
+      }
+      .logo {
+        font-weight: 700;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+      nav a {
+        margin-left: 12px;
+        color: #464646;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .hero {
+        display: flex;
+        gap: 12px;
+        padding: 20px;
+        background: #2b3d37;
+        color: #fff;
+        align-items: center;
+      }
+      .hero-left {
+        flex: 1;
+      }
+      .hero h1 {
+        font-size: 20px;
+        margin: 0 0 8px;
+      }
+      .hero p {
+        margin: 0 0 12px;
+        opacity: 0.9;
+        font-size: 14px;
+      }
+      .btn {
+        background: var(--yellow);
+        color: #222;
+        display: inline-block;
+        border-radius: 20px;
+        padding: 10px 16px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .hero img {
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 4px solid #fff;
+      }
+
+      .section {
+        padding: 18px 20px;
+      }
+      .section h2 {
+        margin: 0 0 12px;
+        font-size: 16px;
+      }
+
+      .specials {
+        display: flex;
+        gap: 12px;
+      }
+      .card {
+        flex: 1;
+        background: #fff;
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+      .card img {
+        width: 100%;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+      .card h3 {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+      .card p {
+        margin: 0;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .testimonials {
+        display: flex;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .quote {
+        flex: 1;
+        background: #fff;
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+      }
+      .quote strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      footer {
+        background: var(--yellow);
+        padding: 18px 20px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      footer .ft-left {
+        font-weight: 700;
+      }
+      footer nav a {
+        display: block;
+        font-size: 12px;
+        color: #222;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="logo192.png" alt="logo" />
+          <span>Little Lemon</span>
+        </div>
+        <nav>
+          <a href="#specials">Menu</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#contact">Order</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Little Lemon</h1>
+          <p>
+            Cozy, friendly neighborhood restaurant serving fresh and tasty
+            specials every day. Try our top dishes!
+          </p>
+          <a class="btn" href="#">Reserve a Table</a>
+        </div>
+        <img src="/images/hero.jpg" alt="Featured dish" />
+      </section>
+
+      <section class="section" id="specials">
+        <h2>Specials</h2>
+        <div class="specials">
+          <article class="card">
+            <img src="marghrita-pizza-close.jpg" alt="Dish 1" />
+            <h3>Greek Salad</h3>
+            <p>Fresh greens, crunchy toppings and house dressing.</p>
+          </article>
+          <article class="card">
+            <img src="/images/dish2.jpg" alt="Dish 2" />
+            <h3>Margherita Pizza</h3>
+            <p>Classic pizza with tomato, mozzarella and basil.</p>
+          </article>
+          <article class="card">
+            <img src="/images/dish3.jpg" alt="Dish 3" />
+            <h3>Seafood Pasta</h3>
+            <p>Pasta tossed with the freshest catch and fragrant herbs.</p>
+          </article>
+        </div>
+
+        <div class="testimonials" id="testimonials">
+          <div class="quote">
+            <strong>Tilly Young</strong>
+            <div>4.5 ★</div>
+          </div>
+          <div class="quote">
+            <strong>Mark Jones</strong>
+            <div>5.0 ★</div>
+          </div>
+          <div class="quote">
+            <strong>Brian Nguyen</strong>
+            <div>4.2 ★</div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contact">
+        <div class="ft-left">Little Lemon</div>
+        <nav>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Jobs</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
