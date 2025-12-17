@@ -10,6 +10,7 @@ export default function Header() {
       <nav>
         <a href="#specials">Menu</a>
         <a href="#testimonials">Reviews</a>
+        <a href="#book">Book</a>
         <a href="#contact">Order</a>
       </nav>
     </header>
