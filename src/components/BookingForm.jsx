@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ReservationContext } from '../context/ReservationContext';
 
 export default function BookingForm() {
+  const { times, reserve } = useContext(ReservationContext);
+
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -19,7 +22,7 @@ export default function BookingForm() {
 
   function onSubmit(e) {
     e.preventDefault();
-    // In a real app you'd post to an API; here we'll show a confirmation
+    reserve(values);
     setSent(true);
     console.log('Booking submitted', values);
   }
@@ -32,7 +35,6 @@ export default function BookingForm() {
       </div>
     );
   }
-
   return (
     <form className="booking-form" onSubmit={onSubmit}>
       <div className="field-row">
@@ -68,7 +70,12 @@ export default function BookingForm() {
         </label>
         <label>
           Time
-          <input name="time" type="time" value={values.time} onChange={onChange} required />
+          <select name="time" value={values.time} onChange={onChange} required>
+            <option value="">Select time</option>
+            {times.map((t) => (
+              <option key={t} value={t}>{t}</option>
+            ))}
+          </select>
         </label>
       </div>
 

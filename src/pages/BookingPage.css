@@ -1,0 +1,5 @@
+.book-page { padding: 20px; }
+.book-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
+.book-info { padding: 8px }
+.book-form { padding: 8px }
+@media (max-width: 760px) { .book-inner { grid-template-columns: 1fr } }

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import ExerciseLittleLemon from '../ExerciseLittleLemon';
-import BookPage from './BookPage';
+import Homepage from '../pages/Homepage';
+import BookingPage from '../pages/BookingPage';
 
 export default function Main() {
   return (
     <main>
       <Routes>
-        <Route path="/" element={<ExerciseLittleLemon />} />
-        <Route path="/book" element={<BookPage />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/book" element={<BookingPage />} />
       </Routes>
     </main>
   );
