@@ -1,16 +1,17 @@
 import './App.css';
-import ExerciseLittleLemon from './ExerciseLittleLemon';
-import { Routes, Route } from 'react-router-dom';
-import BookPage from './components/BookPage';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<ExerciseLittleLemon />} />
-        <Route path="/book" element={<BookPage />} />
-      </Routes>
-    </div>
+    <>
+      <Header />
+      <Nav />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
