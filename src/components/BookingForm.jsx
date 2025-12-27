@@ -1,8 +1,16 @@
 import React, { useState, useContext } from 'react';
 import { ReservationContext } from '../context/ReservationContext';
 
-export default function BookingForm() {
-  const { times, reserve } = useContext(ReservationContext);
+export default function BookingForm({ times = [], updateTimes = () => {}, reserve: reserveProp } ) {
+  const ctx = useContext(ReservationContext) || {};
+  const reserveFromContext = ctx.reserve;
+  const reserve = reserveProp || reserveFromContext;
+
+  // allow an external submitAPI to be present globally (in index.html) — tests will mock it
+  const submitAPI = typeof window !== 'undefined' && typeof window.submitAPI === 'function' ? window.submitAPI : undefined;
+
+  // static heading for tests and UX
+  const heading = 'Book Now';
 
   const [values, setValues] = useState({
     name: '',
@@ -14,17 +22,41 @@ export default function BookingForm() {
     notes: '',
   });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   function onChange(e) {
     const { name, value } = e.target;
     setValues((v) => ({ ...v, [name]: value }));
+    if (name === 'date') {
+      updateTimes(value);
+    }
   }
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    reserve(values);
-    setSent(true);
-    console.log('Booking submitted', values);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      let ok = true;
+      if (typeof submitAPI === 'function') {
+        // submitAPI may be async
+        ok = await submitAPI(values);
+      }
+
+      if (ok) {
+        // only reserve locally after successful submit
+        if (typeof reserve === 'function') reserve(values);
+        setSent(true);
+        console.log('Booking submitted', values);
+      } else {
+        setSubmitError('Submission failed. Please try again.');
+      }
+    } catch (err) {
+      setSubmitError('Submission failed. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (sent) {
@@ -37,6 +69,7 @@ export default function BookingForm() {
   }
   return (
     <form className="booking-form" onSubmit={onSubmit}>
+      <h3>{heading}</h3>
       <div className="field-row">
         <label>
           Name
@@ -85,8 +118,12 @@ export default function BookingForm() {
       </label>
 
       <div className="form-actions">
-        <button type="submit" className="btn">Request Reservation</button>
+        <button type="submit" className="btn" disabled={submitting}>
+          {submitting ? 'Submitting...' : 'Request Reservation'}
+        </button>
       </div>
+      {submitError && <p className="form-error" role="alert">{submitError}</p>}
     </form>
   );
 }
+

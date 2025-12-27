@@ -3,11 +3,11 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer id="contact">
-      <div className="ft-left">Little Lemon</div>
-      <nav>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Order for delivery</a>
+      <p className="ft-left">Little Lemon</p>
+      <nav aria-label="Footer navigation">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/order">Order for delivery</a>
       </nav>
     </footer>
   );

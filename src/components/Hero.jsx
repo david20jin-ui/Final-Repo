@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
           through the vibrant culinary landscape of the Mediterranean
           region.
         </p>
-        <a className="btn" href="#">Reserve a Table</a>
+        <Link className="btn" to="/book">Reserve a Table</Link>
       </div>
       <img src="/images/margherita-pizza-close.jpg" alt="Featured dish" />
     </section>

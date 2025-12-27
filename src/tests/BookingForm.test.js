@@ -6,7 +6,7 @@ import { ReservationProvider } from '../context/ReservationContext';
 test('submitting the booking form shows confirmation', () => {
   render(
     <ReservationProvider>
-      <BookingForm />
+      <BookingForm times={["18:00", "18:30", "19:00"]} updateTimes={() => {}} />
     </ReservationProvider>
   );
 
