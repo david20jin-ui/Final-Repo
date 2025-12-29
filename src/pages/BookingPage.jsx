@@ -2,7 +2,7 @@ import React from 'react';
 import '../pages/BookingPage.css';
 import BookingForm from '../components/BookingForm';
 
-export default function BookingPage({ availableTimes = [], updateTimes = () => {}, reserve = () => {} }) {
+export default function BookingPage({ availableTimes = [], updateTimes = () => {}, reserve = () => {}, submitForm = undefined }) {
   const times = Array.isArray(availableTimes) ? availableTimes : [];
   return (
     <section className="book-page" id="book">
@@ -15,7 +15,7 @@ export default function BookingPage({ availableTimes = [], updateTimes = () => {
           </p>
         </div>
         <div className="book-form">
-          <BookingForm times={times} updateTimes={updateTimes} reserve={reserve} />
+          <BookingForm times={times} updateTimes={updateTimes} reserve={reserve} submitForm={submitForm} />
           <div className="available-times" aria-label="available-times">
             <h4>Available times</h4>
             <ul>

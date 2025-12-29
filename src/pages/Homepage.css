@@ -2,6 +2,16 @@
 html, body, #root { height: 100%; }
 body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: #f2f2f2; }
 
+/* Header logo */
+.logo { font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 8px; }
+.logo img { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+
+/* Primary navigation */
+nav[aria-label="Primary navigation"] ul { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; align-items: center; }
+nav[aria-label="Primary navigation"] a { padding: 8px 10px; border-radius: 6px; text-decoration: none; color: var(--dark); font-weight: 600; transition: background 0.16s, color 0.16s; }
+nav[aria-label="Primary navigation"] a:hover { background: rgba(0,0,0,0.06); color: #111 }
+
+
 .container {
   max-width: 880px;
   width: 100%;

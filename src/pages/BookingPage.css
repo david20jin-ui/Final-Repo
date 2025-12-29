@@ -1,5 +1,29 @@
-.book-page { padding: 20px; }
-.book-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
+.book-page { padding: 28px 20px; }
+.book-inner { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 40px; align-items: start; }
 .book-info { padding: 8px }
-.book-form { padding: 8px }
-@media (max-width: 760px) { .book-inner { grid-template-columns: 1fr } }
+.book-form { padding: 16px; }
+
+/* Booking form improvements */
+.booking-form { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.booking-form h3 { margin-top: 0; margin-bottom: 12px; }
+.booking-form label { display: block; margin-bottom: 10px; font-weight: 500; }
+.booking-form input,
+.booking-form select,
+.booking-form textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
+.booking-form textarea { min-height: 100px; resize: vertical; }
+.field-row { display: flex; gap: 12px; }
+.field-row > label { flex: 1; }
+.form-actions { margin-top: 12px; }
+.form-actions .btn { padding: 12px 18px; font-weight: 700; border-radius: 28px; }
+
+.available-times { margin-top: 18px; padding-top: 8px; border-top: 1px dashed #eee; }
+.available-times h4 { margin-bottom: 12px; }
+.available-times ul { padding-left: 20px; margin: 0; }
+.available-times li { margin: 6px 0; }
+
+/* Responsive tweaks */
+@media (max-width: 760px) {
+  .book-inner { grid-template-columns: 1fr; gap: 20px; }
+  .booking-form { padding: 12px; }
+  .field-row { flex-direction: column; }
+}

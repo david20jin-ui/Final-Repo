@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { ReservationContext } from '../context/ReservationContext';
 
-export default function BookingForm({ times = [], updateTimes = () => {}, reserve: reserveProp } ) {
+export default function BookingForm({ times = [], updateTimes = () => {}, reserve: reserveProp, submitForm } ) {
   const ctx = useContext(ReservationContext) || {};
   const reserveFromContext = ctx.reserve;
   const reserve = reserveProp || reserveFromContext;
@@ -39,7 +39,9 @@ export default function BookingForm({ times = [], updateTimes = () => {}, reserv
     setSubmitError('');
     try {
       let ok = true;
-      if (typeof submitAPI === 'function') {
+      if (typeof submitForm === 'function') {
+        ok = await submitForm(values);
+      } else if (typeof submitAPI === 'function') {
         // submitAPI may be async
         ok = await submitAPI(values);
       }

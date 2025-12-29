@@ -65,18 +65,25 @@
         gap: 8px;
       }
       .logo img {
-        width: 36px;
-        height: 36px;
-
+        width: 44px;
+        height: 44px;
         object-fit: cover;
-        border-radius: 6px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
       }
       nav a {
         margin-left: 12px;
-        color: #464646;
-
+        color: var(--dark);
         text-decoration: none;
         font-size: 14px;
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: background 0.16s, color 0.16s;
+      }
+      nav a:hover {
+        background: rgba(0, 0, 0, 0.06);
+        color: #111;
       }
 
       .hero {
@@ -123,7 +130,6 @@
       .section {
         padding: 18px 20px;
       }
-
 
       .section h2 {
         margin: 0 0 12px;
@@ -232,7 +238,7 @@
     <div class="container">
       <header>
         <div class="logo">
-          <img src="logo192.png" alt="logo" />
+          <img src="/images/og.png" alt="Little Lemon logo" class="site-logo" />
           <span>Little Lemon</span>
         </div>
         <nav>
@@ -257,7 +263,7 @@
         <h2>Specials</h2>
         <div class="specials">
           <article class="card">
-            <img src="/images/dish1.png" alt="Greek Salad" />
+            <img src="/images/dish3.png" alt="Greek Salad" />
             <h3>Greek Salad</h3>
             <p>
               Greek salad is a simple combination of chunky vegetables, feta
@@ -266,7 +272,7 @@
             </p>
           </article>
           <article class="card">
-            <img src="/images/dish2.png" alt="Bruschetta" />
+            <img src="/images/hero.png" alt="Bruschetta" />
             <h3>Bruschetta</h3>
             <p>
               Toasted bread topped with marinated tomatoes, garlic and fresh
@@ -298,10 +304,6 @@
           </div>
         </div>
       </section>
-      
-      
-
-     
 
       <footer id="contact">
         <div class="ft-left">Little Lemon</div>
